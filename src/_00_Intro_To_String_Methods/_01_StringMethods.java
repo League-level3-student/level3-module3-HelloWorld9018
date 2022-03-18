@@ -1,6 +1,11 @@
 package _00_Intro_To_String_Methods;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.HashMap;
+
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 
 /*
  * Visit the JavaDocs for the String class to view everything you can do with a String.
@@ -12,15 +17,15 @@ import java.util.Base64;
  * replace
  * trim
  * length
- * getBytes
- * endsWith
+ * getBytes  ---?  characters -> converted to bytes -> copied into byte[] subarray
+ * endsWith  ---?  Tests if this string ends with the specified suffix.
  * split 
  * indexOf
  * lastIndexOf
  * compareTo(IgnoreCase)
  * substring
  * toUpperCase/toLowerCase
- * valueOf
+ * valueOf  ---?  Returns the string representation of the Object argument.
  *
  * Here are some Character methods you might find useful:
  * Character.toLowerCase(char c);
@@ -34,20 +39,58 @@ public class _01_StringMethods {
 
     // Given Strings s1 and s2, return the longer String
     public static String longerString(String s1, String s2) {
-        return null;
+    	if(s2.length() > s1.length()) {
+    		return s2;
+    	}
+    	else if(s1.length() > s2.length()) {
+    		return s1;
+    	}
+    	else {
+        return "equal";
+    	}
     }
 
     // If String s contains the word "underscores", change all of the spaces
     // to underscores
     public static String formatSpaces(String s) {
-        return null;
+    	
+    	if(s.contains("underscores")) {
+    		s = s.replace(" ", "_");
+    	}
+        
+		return s;
     }
 
     // Return the name of the person whose LAST name would appear first if they
-    // were in alphabetical order.
+    // were in alphabetical order (by last name).
     // You cannot assume there are no extra spaces around the name, but you can
     // assume there is only one space between the first and last name
     public static String lineLeader(String s1, String s2, String s3) {
+    	String[] str = {s1, s2, s3};
+    	
+    	HashMap<String, String> lastNamesHM = new HashMap<String, String>();
+    	
+    	for(int i = 0; i<3; i++) {
+    		str[i] = str[i].trim();
+    		String[] Split = str[i].split(" ");
+    		String Last = Split[1];
+    		
+    		lastNamesHM.put(Last, str[i]);
+    	}
+    	//need to iterate through hashmap, compare keys to check which last name
+    	//comes first in alphebetacal order, get corresponding value (s1, s2, or s3) and return.
+    	for() {
+    		
+    	}
+    	
+    	/*s1 = s1.trim();
+    	s2 = s2.trim();
+    	s3 = s3.trim();
+    	String[] Split1 = s1.split(" ");
+    	String L1 = Split1[1];
+    	String[] Split2 = s2.split(" ");
+    	String L2 = Split*/
+    	
         return null;
     }
 

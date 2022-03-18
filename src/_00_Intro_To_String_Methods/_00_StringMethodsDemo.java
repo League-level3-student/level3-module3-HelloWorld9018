@@ -23,8 +23,20 @@ public class _00_StringMethodsDemo {
         
         // Converting a String to a number
         // Do you remember Integer.parseInt()? or Double.parseDouble()?
+        /** 
+         * @param
+         MY NOTES: int num = Integer.parseInt(stringName); 
+         */
         
         // Converting a number to a String
+        /** 
+         MY NOTES:
+         int x = 5;
+         String name = "" + x;
+         OR...
+         String str = String.valueof(x);
+         */
+        
         // Do you remember how to combine Strings using +?
         
         // Convert string letters to all upper case or lower case
@@ -35,6 +47,7 @@ public class _00_StringMethodsDemo {
         String substring1 = str.substring(0, 7);    // "Welcome"
         String substring2 = str.substring(8, 10);   // "to"
         String substring3 = str.substring(11);      // "Java"
+        /** MY NOTES: last element in parameter not inclusive */
         System.out.println("substring1: " + substring1);
         System.out.println("substring2: " + substring2);
         System.out.println("substring3: " + substring3);
@@ -78,7 +91,7 @@ public class _00_StringMethodsDemo {
             numOccurances++;
             index = str.indexOf(substring, index + substring.length());
         }
-        
+    
         System.out.println("1. The substring '" + substring + "' appeared: " + numOccurances +
                            " times in the string '" + str + "'");
         
@@ -89,7 +102,10 @@ public class _00_StringMethodsDemo {
         substring = "to";
         String removedSubstring = str.replace(substring, "");
         numOccurances = (str.length() - removedSubstring.length()) / substring.length();
-        
+        /*
+         * 	(14-12)/2 = 2/2
+         * length of how many characters removed / length of substring = how many substrings removed
+         */
         System.out.println("2. The substring '" + substring + "' appeared: " + numOccurances +
                            " times in the string '" + str + "'");
     }
