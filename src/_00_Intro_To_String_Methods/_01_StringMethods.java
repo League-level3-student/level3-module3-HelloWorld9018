@@ -70,37 +70,61 @@ public class _01_StringMethods {
     	
     	HashMap<String, String> lastNamesHM = new HashMap<String, String>();
     	
+    	String first = "";
     	for(int i = 0; i<3; i++) {
     		str[i] = str[i].trim();
     		String[] Split = str[i].split(" ");
     		String Last = Split[1];
     		
     		lastNamesHM.put(Last, str[i]);
+    		first = Last;
     	}
     	//need to iterate through hashmap, compare keys to check which last name
-    	//comes first in alphebetacal order, get corresponding value (s1, s2, or s3) and return.
-    	for() {
+    	//comes first in alphebetacal order (put all in same capitalization before), 
+    	//get corresponding value (s1, s2, or s3) and return.
+    	
+    	for(String c: lastNamesHM.keySet()) {
     		
+    		if(c.compareTo(first)<0) {
+    			first = c;
+    		}
     	}
     	
-    	/*s1 = s1.trim();
-    	s2 = s2.trim();
-    	s3 = s3.trim();
-    	String[] Split1 = s1.split(" ");
-    	String L1 = Split1[1];
-    	String[] Split2 = s2.split(" ");
-    	String L2 = Split*/
-    	
-        return null;
+    	//System.out.println( lastNamesHM.get(first));
+        return lastNamesHM.get(first);
     }
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
-        return 0;
+    	char[] chars = s.toCharArray();
+    	ArrayList<Integer> numbers = new ArrayList<>();
+    	for(int i = 0; i<chars.length; i++) {
+    		if(Character.isDigit(chars[i])) {
+        		numbers.add(chars[i]-48);
+        		//Instead of (chars[i] - 48) can do: Character.getNumericValue(chars[i])
+        	}
+    	}
+    	int sum = 0;
+    	for(int i = 0; i<numbers.size(); i++) {
+    		sum = sum+numbers.get(i);
+    		//System.out.println(sum);
+    	}
+    	
+        return sum;
     }
 
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
+    	s = s.replace(" ", "");
+    	/*thecatthethe
+    	  012345678*/
+    	//HERE...FIGURE OUT
+    	int subLength = substring.length();
+    	System.out.println(subLength);
+    	int interations = (s.length()/subLength);
+    	for(int i = 0; i<iterations; i++) {
+    		
+    	}
         return 0;
     }
 
