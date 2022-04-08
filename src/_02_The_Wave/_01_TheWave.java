@@ -20,7 +20,15 @@ public class _01_TheWave {
      */
     
     public static ArrayList<String> wave(String str) {
-        
+        str = str.trim();
+        str = str.replace(" ", "");
+        char[] chars = str.toCharArray();
+        ArrayList<String> wave = new ArrayList<String>();
+        for(int i = 0; i<str.length(); i++) {
+        //	chars[i] = chars[i].
+        			//figure out how to capitalize
+        //	wave.add(e)
+        }
         return null;
     }
 }

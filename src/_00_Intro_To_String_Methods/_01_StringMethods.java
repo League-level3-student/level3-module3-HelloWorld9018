@@ -115,48 +115,90 @@ public class _01_StringMethods {
 
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
-    	s = s.replace(" ", "");
-    	/*thecatthethe
-    	  012345678*/
-    	//HERE...FIGURE OUT
-    	int subLength = substring.length();
-    	System.out.println(subLength);
-    	int interations = (s.length()/subLength);
-    	for(int i = 0; i<iterations; i++) {
-    		
+    	int occurances = 0;
+    
+    	//System.out.println(s);
+    	//System.out.println(substring.length());
+    	
+		for(int i = 0; i<=s.length()-substring.length(); i++) {
+    		String chunk = s.substring(i, i+substring.length());
+    		//System.out.println(chunk);
+    		if(chunk.equals(substring)) {
+    			occurances++;
+    		}
     	}
-        return 0;
+		//System.out.println(substring + "; " + occurances);
+        return occurances;
     }
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
-        return null;
+    	byte by = (byte) key;
+    	
+        return Utilities.encrypt(s.getBytes(), by);
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
     // cyphertext (encrypted text)
     public static String decrypt(String s, char key) {
-        return null;
+    	byte by = (byte) key;
+        return Utilities.decrypt(s, by);
     }
 
     // Return the number of words in String s that end with String substring
     // You can assume there are no punctuation marks between words
     public static int wordsEndsWithSubstring(String s, String substring) {
-        return 0;
+    	String[] arr = s.split(" ");
+    	int num = 0;
+    	for(int i = 0; i <arr.length; i++) {
+    		if(arr[i].endsWith(substring)) {
+    			num++;
+    		}
+    	}
+        return num;
     }
 
     // Given String s, return the number of characters between the first
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
-        return 0;
+    	int firstOccurance = s.indexOf(substring);
+  
+    	int finalOccurance = s.lastIndexOf(substring);
+    	
+    	/*System.out.println("Find '" + substring + "' in '" + s + "'");
+    	System.out.println("first occurance: " + (firstOccurance+substring.length()-1));
+    	System.out.println("final occurance: " + finalOccurance);*/
+    	
+    	int distance = (finalOccurance-1) - (firstOccurance+substring.length()-1);
+    	
+        return distance;
     }
 
     // Return true if String s is a palindrome
     // palindromes are words or phrases are read the same forward as backward.
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
-        return true;
+    //	System.out.println(s);
+    	boolean palindrome  = false;
+    	String[] punctuation = {".", "," , "-", ":", " ", "?"};
+    	for(int i = 0; i<punctuation.length; i++) {
+    		s = s.replace(punctuation[i], "");
+    	}
+    	char[] schars = s.toCharArray();
+    	String backwards = "";
+    	
+    	for (int i = schars.length-1; i>=0; i--) {
+    		backwards = backwards + schars[i];
+    	}
+    	
+    //	System.out.println(s);
+    //	System.out.println(backwards);
+    	if(s.equalsIgnoreCase(backwards)) {
+    		palindrome = true;
+    	}
+    //	System.out.println(palindrome);
+        return palindrome;
     }
 }
 
