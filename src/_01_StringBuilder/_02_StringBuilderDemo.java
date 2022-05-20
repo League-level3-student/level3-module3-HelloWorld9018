@@ -29,11 +29,13 @@ public static void main(String[] args) {
      * Below is a demo on how to use StringBuilder.
      */
     
-    // Declaring and initializing a StringBilder object
+    // Declaring and initializing a StringBuilder object
     StringBuilder builder = new StringBuilder("This is a StringBuilder");
     
     // Converting the StringBuilder object into a String
     System.out.println("toString ....: " + builder.toString());
+    //String BString = builder.toString();
+    //System.out.println(builder);
     
     // Appending characters to the end of a String
     System.out.println("append ......: " + builder.append(" append").toString());
@@ -53,9 +55,11 @@ public static void main(String[] args) {
     
     // Inserting multiple characters (you can also do "is" instead of char[])
     System.out.println("insert 5 to 7: " + builder.insert(5, new char[] {'i', 's'}));
+    //System.out.println("insert 5 to 7: " + builder.insert(5, "is"));
     
     // Replacing a range of characters
     System.out.println("replace .....: " + builder.replace(0, 4, "Replaced").toString());
+    //first=inclusive, second=non-inclusive
     
     // Using String methods in conjunction with StringBuilder
     System.out.println("SB & String .: " + builder.toString().replace(' ', '_').trim());

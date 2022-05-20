@@ -101,5 +101,22 @@ public class _00_RegularExpressionsDemo {
         regEx = "[\\w]{6,}";
         output = testString.replaceAll(regEx, "______");
         System.out.println(output);
+        //{min, max}
+        // my testing
+        String mine = "The dog jumped over the thick fence to chase the therery cat";
+        regEx = "the";
+        output = mine.replace(regEx, "___");
+        System.out.println(output);
+        
+        regEx = "[t][h][e]";
+        output = mine.replaceAll(regEx, "___");
+        System.out.println(output);
+        
+        regEx = "[the]";
+        output = mine.replaceAll(regEx, "_");
+        System.out.println(output);
+        
+        //capital?
+        
     }
 }
